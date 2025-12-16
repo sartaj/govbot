@@ -111,9 +111,10 @@ tags:
         - "Condemns anti-Semitic incidents and establishes reporting system"
         - "Authorizes state investment in Israeli technology companies"
 
-publish:
+build:
   base_url: "https://sartaj.me/govbot"
   output_dir: "feeds"
   output_file: "feed.xml"
+  title: "Sartaj's Govbot"
   # Optional: limit number of entries (default: 15, use "none" for all)
   # limit: 15
