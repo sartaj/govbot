@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_run": "2025-12-16T03:15:19.850400+00:00",
+    "last_run": "2025-12-16T03:15:17.106511+00:00",
     "model": "/Users/sartaj/Git/sartaj-govbot/.govbot/model.onnx",
     "tag_config_hash": "2d718ec83ccbc739de83cc35774b145389e99382900ff5b44b2ca3ac5d739ac5"
   },
@@ -48,30 +48,17 @@
     "threshold": 0.5
   },
   "text_cache": {
-    "3c4b817cc2a43a8f8d498ed3ae71d19c2def1927424f50726b251311c8122799": "Censuring Representative Rashida Tlaib for promoting and cheering on terrorism and antisemitism at the People's Conference for Palestine. 119 ~{\"classification\": \"lower\"} Referred to the House Committee on Ethics. HRES 674",
-    "c4872210346cae81372f3e17bff2b58ce2153f3ae4b0462e6a2ae81c4755c09f": "Countering Hate Against Israel by Federal Contractors Act 119 ~{\"classification\": \"lower\"} Introduced in House HR 3050"
+    "840115af1b48b0fb28f45d91ca8e6d974cb4b29a75830e1d1b6a671c828382db": "HOUSE RESOLUTION RECOGNIZING THE 77TH ANNIVERSARY OF ISRAEL'S DAY OF INDEPENDENCE ON APRIL 30TH THROUGH MAY 1ST, 2025, AND REAFFIRMING THE BONDS OF FRIENDSHIP AND COOPERATION BETWEEN RHODE ISLAND, THE UNITED STATES, AND THE STATE OF ISRAEL 2025 ~{\"classification\": \"lower\"} 05/01/2025 House read and passed HR6292"
   },
   "bills": {
-    "HR 3050": {
-      "text_hash": "c4872210346cae81372f3e17bff2b58ce2153f3ae4b0462e6a2ae81c4755c09f",
+    "HR6292": {
+      "text_hash": "840115af1b48b0fb28f45d91ca8e6d974cb4b29a75830e1d1b6a671c828382db",
       "score": {
-        "final_score": 0.7229388952255249,
-        "base_embedding": 0.37281954288482666,
-        "example_similarity": 0.7698082327842712,
+        "final_score": 0.6917517185211182,
+        "base_embedding": 0.40494024753570557,
+        "example_similarity": 0.6000905632972717,
         "keyword_match": [
           "israel"
-        ],
-        "negative_penalty": 0.0
-      }
-    },
-    "HRES 674": {
-      "text_hash": "3c4b817cc2a43a8f8d498ed3ae71d19c2def1927424f50726b251311c8122799",
-      "score": {
-        "final_score": 0.6795296669006348,
-        "base_embedding": 0.36136123538017273,
-        "example_similarity": 0.6122129559516907,
-        "keyword_match": [
-          "palestine"
         ],
         "negative_penalty": 0.0
       }

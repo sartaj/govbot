@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "last_run": "2025-12-16T03:14:55.564830+00:00",
+    "model": "/Users/sartaj/Git/sartaj-govbot/.govbot/model.onnx",
+    "tag_config_hash": "64a447a9a10d8102c5004174fe089068ed8a854ee78836b4ea6d37f1313b069c"
+  },
+  "tag_config": {
+    "name": "lgbtq",
+    "description": "Legislation related to lesbian, gay, bisexual, transgender, queer, and gender non-conforming people, including:\n- Legal rights and protections for sexual orientation, gender identity, and gender expression\n- Anti-discrimination measures in employment, housing, education, healthcare, and public services\n- Marriage equality, domestic partnerships, civil unions, and adoption rights for same-sex couples\n- Policies addressing harassment, bullying, and hate crimes targeting LGBTQ+ individuals\n- Bans or restrictions on conversion therapy and gender-affirming healthcare\n- Transgender rights regarding bathroom access, participation in sports, and changing identification documents\n- Religious exemptions or freedom laws affecting LGBTQ+ rights\n- Recognition of non-binary or intersex status in legal or governmental contexts\n",
+    "examples": [
+      "Expands anti-discrimination protections to include sexual orientation and gender identity",
+      "Allows transgender individuals to change gender markers on IDs",
+      "Prohibits conversion therapy for minors",
+      "Same-sex marriage and adoption rights",
+      "Transgender student bathroom and sports participation policies"
+    ],
+    "include_keywords": [
+      "lgbt",
+      "lgbtq",
+      "lgbtq+",
+      "lgbtqia+",
+      "lgbtqia",
+      "transgender",
+      "same-sex",
+      "sexual orientation",
+      "gender identity",
+      "gender expression",
+      "conversion therapy",
+      "gender marker",
+      "gender affirming",
+      "gender transition",
+      "gender dysphoria",
+      "non-binary"
+    ],
+    "exclude_keywords": [
+      "abortion",
+      "reproductive",
+      "pregnancy",
+      "maternal",
+      "prenatal",
+      "contraception",
+      "childbirth",
+      "transport",
+      "transportation",
+      "transit",
+      "transfer",
+      "transaction"
+    ],
+    "negative_examples": [
+      "Maternal health and pregnancy protections",
+      "Abortion access and reproductive rights",
+      "Equal pay for women in the workplace",
+      "Domestic violence shelters and services for women",
+      "Workplace accommodations for breastfeeding mothers",
+      "Women's healthcare and cervical cancer screening"
+    ],
+    "threshold": 0.5
+  },
+  "text_cache": {
+    "635c0a2f231b68d21d14714b0ce05b52086212e0ee72e5ae073f277adcd2aced": "RECOGNIZING JUNE 2025 AS LGBTQ+ PRIDE MONTH IN THE STATE OF DELAWARE. This House Concurrent Resolution celebrates the progress of the LGBTQ+ movement, recognizes the importance of establishing protections for the LGBTQ+ community, and acknowledges the month of June 2025 as LGBTQ+ Pride Month in the State of Delaware. synopsis 153 ~{\"classification\": \"lower\"} Passed In House by Voice Vote HCR 60"
+  },
+  "bills": {
+    "HCR 60": {
+      "text_hash": "635c0a2f231b68d21d14714b0ce05b52086212e0ee72e5ae073f277adcd2aced",
+      "score": {
+        "final_score": 0.5490103960037231,
+        "base_embedding": 0.38777875900268555,
+        "example_similarity": 0.5074947476387024,
+        "keyword_match": [
+          "lgbtq"
+        ],
+        "negative_penalty": 0.11358582973480225
+      }
+    }
+  }
+}

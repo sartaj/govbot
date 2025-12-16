@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "last_run": "2025-12-16T03:15:22.817693+00:00",
+    "model": "/Users/sartaj/Git/sartaj-govbot/.govbot/model.onnx",
+    "tag_config_hash": "64a447a9a10d8102c5004174fe089068ed8a854ee78836b4ea6d37f1313b069c"
+  },
+  "tag_config": {
+    "name": "lgbtq",
+    "description": "Legislation related to lesbian, gay, bisexual, transgender, queer, and gender non-conforming people, including:\n- Legal rights and protections for sexual orientation, gender identity, and gender expression\n- Anti-discrimination measures in employment, housing, education, healthcare, and public services\n- Marriage equality, domestic partnerships, civil unions, and adoption rights for same-sex couples\n- Policies addressing harassment, bullying, and hate crimes targeting LGBTQ+ individuals\n- Bans or restrictions on conversion therapy and gender-affirming healthcare\n- Transgender rights regarding bathroom access, participation in sports, and changing identification documents\n- Religious exemptions or freedom laws affecting LGBTQ+ rights\n- Recognition of non-binary or intersex status in legal or governmental contexts\n",
+    "examples": [
+      "Expands anti-discrimination protections to include sexual orientation and gender identity",
+      "Allows transgender individuals to change gender markers on IDs",
+      "Prohibits conversion therapy for minors",
+      "Same-sex marriage and adoption rights",
+      "Transgender student bathroom and sports participation policies"
+    ],
+    "include_keywords": [
+      "lgbt",
+      "lgbtq",
+      "lgbtq+",
+      "lgbtqia+",
+      "lgbtqia",
+      "transgender",
+      "same-sex",
+      "sexual orientation",
+      "gender identity",
+      "gender expression",
+      "conversion therapy",
+      "gender marker",
+      "gender affirming",
+      "gender transition",
+      "gender dysphoria",
+      "non-binary"
+    ],
+    "exclude_keywords": [
+      "abortion",
+      "reproductive",
+      "pregnancy",
+      "maternal",
+      "prenatal",
+      "contraception",
+      "childbirth",
+      "transport",
+      "transportation",
+      "transit",
+      "transfer",
+      "transaction"
+    ],
+    "negative_examples": [
+      "Maternal health and pregnancy protections",
+      "Abortion access and reproductive rights",
+      "Equal pay for women in the workplace",
+      "Domestic violence shelters and services for women",
+      "Workplace accommodations for breastfeeding mothers",
+      "Women's healthcare and cervical cancer screening"
+    ],
+    "threshold": 0.5
+  },
+  "text_cache": {
+    "c7336e85b0c464ac718731473cd29f83bb23526c80cde215162a208cba3774d2": "Relating to: prohibiting gender transition medical intervention for individuals under 18 years of age. 2025 ~{\"classification\": \"lower\"} AB104"
+  },
+  "bills": {
+    "AB104": {
+      "text_hash": "c7336e85b0c464ac718731473cd29f83bb23526c80cde215162a208cba3774d2",
+      "score": {
+        "final_score": 0.5490907430648804,
+        "base_embedding": 0.37594813108444214,
+        "example_similarity": 0.74093097448349,
+        "keyword_match": [
+          "gender transition"
+        ],
+        "negative_penalty": 0.1677238643169403
+      }
+    }
+  }
+}
