@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "last_run": "2025-12-16T03:03:33.857987374+00:00",
+    "model": "/home/runner/work/govbot/govbot/.govbot/model.onnx",
+    "tag_config_hash": "2d718ec83ccbc739de83cc35774b145389e99382900ff5b44b2ca3ac5d739ac5"
+  },
+  "tag_config": {
+    "name": "palestine_israel",
+    "description": "Legislation related to Israel, Palestine, and the Israeli-Palestinian conflict, including:\n- Resolutions, statements, or official positions on the conflict\n- Divestment, boycott, or sanctions measures (BDS) targeting Israel or Palestinian entities\n- State aid, funding, or support for Israel or Palestine\n- Recognition of statehood for Israel or Palestine\n- Trade relationships, economic partnerships, and commercial agreements\n- Academic and cultural exchange programs or restrictions\n- Anti-Semitism or Islamophobia related to the conflict\n- Holocaust education and remembrance programs\n- Security cooperation and military assistance\n- Refugee resettlement and humanitarian aid\n- Property rights, settlements, and territorial disputes\n- Religious freedom and access to holy sites\n",
+    "examples": [
+      "Calls for immediate ceasefire in Gaza and humanitarian aid access",
+      "Prohibits state contracts with companies that boycott Israel",
+      "Recognizes Palestine as a sovereign state",
+      "Divests state pension funds from companies operating in Israeli settlements",
+      "Establishes Holocaust education curriculum requirement in public schools",
+      "Provides emergency aid funding for Palestinian refugees",
+      "Condemns anti-Semitic incidents and establishes reporting system",
+      "Authorizes state investment in Israeli technology companies"
+    ],
+    "include_keywords": [
+      "israel",
+      "palestine",
+      "palestinian",
+      "israeli",
+      "gaza",
+      "west bank",
+      "bds",
+      "israeli-palestinian peace process",
+      "israeli-palestinian peace treaty",
+      "israeli-palestinian peace agreement",
+      "israeli-palestinian peace plan",
+      "israeli-palestinian peace initiative",
+      "israeli-palestinian peace proposal",
+      "israeli-palestinian peace resolution",
+      "israeli-palestinian peace statement",
+      "boycott, divestment, and sanctions",
+      "israel-palestine",
+      "israeli-palestinian",
+      "jerusalem",
+      "golan heights",
+      "hamas",
+      "hezbollah",
+      "two-state solution",
+      "one-state solution"
+    ],
+    "exclude_keywords": [],
+    "negative_examples": [],
+    "threshold": 0.5
+  },
+  "text_cache": {
+    "3c4b817cc2a43a8f8d498ed3ae71d19c2def1927424f50726b251311c8122799": "Censuring Representative Rashida Tlaib for promoting and cheering on terrorism and antisemitism at the People's Conference for Palestine. 119 ~{\"classification\": \"lower\"} Referred to the House Committee on Ethics. HRES 674"
+  },
+  "bills": {
+    "HRES 674": {
+      "text_hash": "3c4b817cc2a43a8f8d498ed3ae71d19c2def1927424f50726b251311c8122799",
+      "score": {
+        "final_score": 0.6795296669006348,
+        "base_embedding": 0.36136123538017273,
+        "example_similarity": 0.6122129559516907,
+        "keyword_match": [
+          "palestine"
+        ],
+        "negative_penalty": 0.0
+      }
+    }
+  }
+}

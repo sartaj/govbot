@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "last_run": "2025-12-16T03:02:37.065861424+00:00",
+    "model": "/home/runner/work/govbot/govbot/.govbot/model.onnx",
+    "tag_config_hash": "64a447a9a10d8102c5004174fe089068ed8a854ee78836b4ea6d37f1313b069c"
+  },
+  "tag_config": {
+    "name": "lgbtq",
+    "description": "Legislation related to lesbian, gay, bisexual, transgender, queer, and gender non-conforming people, including:\n- Legal rights and protections for sexual orientation, gender identity, and gender expression\n- Anti-discrimination measures in employment, housing, education, healthcare, and public services\n- Marriage equality, domestic partnerships, civil unions, and adoption rights for same-sex couples\n- Policies addressing harassment, bullying, and hate crimes targeting LGBTQ+ individuals\n- Bans or restrictions on conversion therapy and gender-affirming healthcare\n- Transgender rights regarding bathroom access, participation in sports, and changing identification documents\n- Religious exemptions or freedom laws affecting LGBTQ+ rights\n- Recognition of non-binary or intersex status in legal or governmental contexts\n",
+    "examples": [
+      "Expands anti-discrimination protections to include sexual orientation and gender identity",
+      "Allows transgender individuals to change gender markers on IDs",
+      "Prohibits conversion therapy for minors",
+      "Same-sex marriage and adoption rights",
+      "Transgender student bathroom and sports participation policies"
+    ],
+    "include_keywords": [
+      "lgbt",
+      "lgbtq",
+      "lgbtq+",
+      "lgbtqia+",
+      "lgbtqia",
+      "transgender",
+      "same-sex",
+      "sexual orientation",
+      "gender identity",
+      "gender expression",
+      "conversion therapy",
+      "gender marker",
+      "gender affirming",
+      "gender transition",
+      "gender dysphoria",
+      "non-binary"
+    ],
+    "exclude_keywords": [
+      "abortion",
+      "reproductive",
+      "pregnancy",
+      "maternal",
+      "prenatal",
+      "contraception",
+      "childbirth",
+      "transport",
+      "transportation",
+      "transit",
+      "transfer",
+      "transaction"
+    ],
+    "negative_examples": [
+      "Maternal health and pregnancy protections",
+      "Abortion access and reproductive rights",
+      "Equal pay for women in the workplace",
+      "Domestic violence shelters and services for women",
+      "Workplace accommodations for breastfeeding mothers",
+      "Women's healthcare and cervical cancer screening"
+    ],
+    "threshold": 0.5
+  },
+  "text_cache": {
+    "4db11df084eb4f66e21746bdb547a2954398854dc89838a8ff7585e3c81d9d3e": "Enacting the help not harm act, restricting use of state funds to promote gender transitioning, prohibiting healthcare providers from providing gender transition care to children whose gender identity is inconsistent with the child's sex, authorizing a civil cause of action against healthcare providers for providing such treatments, requiring professional discipline against a healthcare provider who performs such treatment, prohibiting professional liability insurance from covering damages for healthcare providers that provide gender transition treatment to children and adding violation of the act to the definition of unprofessional conduct for physicians. 2025-2026 ~{\"classification\": \"upper\"} Committee Report recommending bill be passed as amended by Committee on Public Health and Welfare SB63"
+  },
+  "bills": {
+    "SB63": {
+      "text_hash": "4db11df084eb4f66e21746bdb547a2954398854dc89838a8ff7585e3c81d9d3e",
+      "score": {
+        "final_score": 0.6001757979393005,
+        "base_embedding": 0.5134738683700562,
+        "example_similarity": 0.31298214197158813,
+        "keyword_match": [
+          "gender identity",
+          "gender transition"
+        ],
+        "negative_penalty": 0.05778556689620018
+      }
+    }
+  }
+}
