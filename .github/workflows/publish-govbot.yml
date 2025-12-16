@@ -32,9 +32,31 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history to ensure proper git tracking
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
       
       - name: Run Govbot
         uses: windy-civi/toolkit/actions/govbot@main
         with:
           tags: ${{ inputs.tags }}
           limit: ${{ inputs.limit }}
+      
+      - name: Check Git Status
+        run: |
+          echo "=== Current Working Directory ==="
+          pwd
+          echo "=== All Files in Repository ==="
+          find . -type f -not -path './.git/*' | head -20
+          echo "=== Git Status ==="
+          git status
+          echo "=== Untracked Files ==="
+          git ls-files --others --exclude-standard || true
+          echo "=== Modified Files ==="
+          git diff --name-only || true
+          echo "=== Files in tags directories ==="
+          find . -path "*/tags/*.tag.json" -type f | head -10 || true
