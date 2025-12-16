@@ -1,0 +1,52 @@
+# Publish Govbot
+# Automatically generates and publishes Govbot from govbot.yml configuration
+
+name: Publish Govbot
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Comma-separated list of tags to include (leave empty for all tags)'
+        required: false
+        type: string
+      limit:
+        description: 'Limit number of entries per feed (default: 15, use "none" for all)'
+        required: false
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Publish RSS feed
+        uses: windy-civi/toolkit/actions/govbot@main
+        with:
+          tags: ${{ inputs.tags }}
+          limit: ${{ inputs.limit }}
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: feeds
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
