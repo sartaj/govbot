@@ -113,8 +113,13 @@ tags:
 
 build:
   base_url: "https://sartaj.me/govbot"
-  output_dir: "feeds"
+  # Output directory for generated RSS feed
+  output_dir: "docs"
+  
+  # Output filename for the RSS feed (default: feed.xml)
   output_file: "feed.xml"
+  
+  # Feed title (optional, defaults to combined tag names)
   title: "Sartaj's Govbot"
-  # Optional: limit number of entries (default: 15, use "none" for all)
+    # Optional: limit number of entries (default: 15, use "none" for all)
   # limit: 15
