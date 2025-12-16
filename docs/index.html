@@ -1,353 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LGBTQ & Palestine Israel Legislation</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="alternate" type="application/rss+xml" title="" href="https://example.com/feed.xml">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fafafa;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    header {
+      background: linear-gradient(rgb(255, 29, 135) 0px, rgb(255, 82, 37) 600px, rgb(238, 145, 126) 1000px, rgba(0, 0, 0, 0.1) 1500px);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    header .container {
+      padding: 0 1rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+    
+    .rss-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    
+    .rss-link:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    
+    .entries {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .entry {
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    
+    .entry:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+    }
+    
+    .entry-header {
+      margin-bottom: 1rem;
+      padding: 1rem 0;
+      box-shadow: none;
+      background: none;
+    }
+    
+    .entry-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: #f0f0f0;
+      color: #666;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .entry-content {
+      margin-bottom: 1rem;
+    }
+    
+    .entry-content p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    
+    .entry-content p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .json-content {
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+    
+    .json-key {
+      font-weight: 600;
+      color: #667eea;
+    }
+    
+    .json-value {
+      color: #333;
+    }
+    
+    .json-section {
+      font-weight: 600;
+      color: #764ba2;
+      margin-top: 0.75em;
+    }
+    
+    .json-line {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    
+    .json-list {
+      list-style-type: disc;
+      padding-left: 1.5em;
+    }
+    
+    .json-list li {
+      color: #555;
+    }
+    
+    .entry-link {
+      display: inline-block;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      transition: color 0.2s;
+    }
+    
+    .entry-link:hover {
+      color: #764ba2;
+      text-decoration: underline;
+    }
+    
+    .entry-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      margin-top: 1rem;
+    }
+    
+    .entry-date {
+      color: #888;
+      font-size: 0.9rem;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
       }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        padding: 20px;
-      }
-
+      
       .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
+        padding: 1rem;
       }
-
-      header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 40px;
-        text-align: center;
+      
+      .entry {
+        padding: 1.5rem;
       }
-
-      header h1 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-        font-weight: 700;
+      
+      .entry-title {
+        font-size: 1.25rem;
       }
+    }
+  </style>
+</head>
+<body>
 
-      header p {
-        font-size: 1.1em;
-        opacity: 0.95;
-        margin-bottom: 20px;
-      }
+  <main class="container">
+    <div class="entries">
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">lgbtq - nc-legislation - Eliminating &quot;DEI&quot; in Public Education.</h2>
+          <div class="tags"><span class="tag">lgbtq</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">SB 227</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">Withdrawn From Cal</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-08-26</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;lower&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">SB 227</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">SB 227</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Eliminating &quot;DEI&quot; in Public Education.</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">2025</span></div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">subject</strong>:</div><ul class="json-list" style="margin-left: 2em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">BOARDS; DISCRIMINATION; EDUCATION; EDUCATION ADMINISTRATION; EDUCATION</li><li style="margin-bottom: 0.25em;">STATE BOARD OF; LGBTQ &amp; GENDER ISSUES; MINORITIES; OCCUPATIONS; PRESENTED; PUBLIC; RATIFIED; STATE EMPLOYEES; STUDENTS; TEACHERS; VETOED; WOMEN; GOVERNMENT EMPLOYEES</li></ul></div>
+          <a href="https://example.com/nc-legislation/country:us/state:nc/sessions/2025/bills/SB227/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250826T000000Z">August 26, 2025 at 12:00 AM UTC</time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">lgbtq - nc-legislation - Equality in State Agencies/Prohibition on Diversity, Equity, and Inclusion (DEI).</h2>
+          <div class="tags"><span class="tag">lgbtq</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HB 171</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HB 171</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HB 171</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Equality in State Agencies/Prohibition on Diversity, Equity, and Inclusion (DEI).</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">2025</span></div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">subject</strong>:</div><ul class="json-list" style="margin-left: 2em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">COLLEGES &amp; UNIVERSITIES; COURTS; DISCRIMINATION; EDUCATION; EMPLOYMENT; FINES &amp; PENALTIES; HIGHER EDUCATION; LGBTQ &amp; GENDER ISSUES; MINORITIES; PERSONNEL; PRESENTED; PUBLIC; RATIFIED; UNC; VETOED; WOMEN; CIVIL ACTIONS</li></ul></div>
+          <a href="https://example.com/nc-legislation/country:us/state:nc/sessions/2025/bills/HB171/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250625T013000Z.vote"></time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">lgbtq - de-legislation - RECOGNIZING JUNE 2025 AS LGBTQ+ PRIDE MONTH IN THE STATE OF DELAWARE.</h2>
+          <div class="tags"><span class="tag">lgbtq</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HCR 60</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">Passed In House by Voice Vote</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-06-10</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;lower&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HCR 60</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HCR 60</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">RECOGNIZING JUNE 2025 AS LGBTQ+ PRIDE MONTH IN THE STATE OF DELAWARE.</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">153</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">abstract (synopsis)</strong>: <span class="json-value">This House Concurrent Resolution celebrates the progress of the LGBTQ+ movement, recognizes the importance of establishing protections for the LGBTQ+ community, and acknowledges the month of June 2025 as LGBTQ+ Pride Month in the State of Delaware.</span></div></div>
+          <a href="https://example.com/de-legislation/country:us/state:de/sessions/153/bills/HCR60/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250610T000000Z">June 10, 2025 at 12:00 AM UTC</time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">lgbtq - nc-legislation - Parents Protection Act.</h2>
+          <div class="tags"><span class="tag">lgbtq</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HB 560</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">Withdrawn From Cal</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-05-06</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;lower&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HB 560</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HB 560</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Parents Protection Act.</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">2025</span></div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">subject</strong>:</div><ul class="json-list" style="margin-left: 2em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">ADOPTION; CHILD ABUSE; CHILD CUSTODY; CRIMES; FOSTER CARE; LGBTQ &amp; GENDER ISSUES; MINORS; PUBLIC; SOCIAL SERVICES; FAMILY ISSUES</li></ul></div>
+          <a href="https://example.com/nc-legislation/country:us/state:nc/sessions/2025/bills/HB560/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250506T000000Z">May 06, 2025 at 12:00 AM UTC</time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">lgbtq - nd-legislation - AN ACT to amend and reenact section 15.1-06-21 of the North Dakota Century Code, relating to transgender student accommodations and restroom use in public schools; to provide a penalty; and to declare an emergency.</h2>
+          <div class="tags"><span class="tag">lgbtq</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HB 1144</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">Reported back from conference committee, in place of, placed on calendar</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-04-28</span></div><div class="json-section" style="margin-left: 2em; margin-top: 0.75em;"><strong class="json-key">classification</strong>:</div><ul class="json-list" style="margin-left: 3em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">committee-passage</li></ul><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;upper&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HB 1144</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HB 1144</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">AN ACT to amend and reenact section 15.1-06-21 of the North Dakota Century Code, relating to transgender student accommodations and restroom use in public schools; to provide a penalty; and to declare an emergency.</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">69</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">abstract (summary)</strong>: <span class="json-value">Relating to transgender student accommodations and restroom use in public schools; to provide a penalty; and to declare an emergency.</span></div></div>
+          <a href="https://example.com/nd-legislation/country:us/state:nd/sessions/69/bills/HB1144/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250428T000000Z">April 28, 2025 at 12:00 AM UTC</time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">lgbtq - nc-legislation - Equality in State Agencies/Prohibition on Diversity, Equity, and Inclusion (DEI).</h2>
+          <div class="tags"><span class="tag">lgbtq</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HB 171</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">Withdrawn From Cal</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-04-09</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;lower&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HB 171</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HB 171</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Equality in State Agencies/Prohibition on Diversity, Equity, and Inclusion (DEI).</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">2025</span></div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">subject</strong>:</div><ul class="json-list" style="margin-left: 2em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">COLLEGES &amp; UNIVERSITIES; COURTS; DISCRIMINATION; EDUCATION; EMPLOYMENT; FINES &amp; PENALTIES; HIGHER EDUCATION; LGBTQ &amp; GENDER ISSUES; MINORITIES; PERSONNEL; PRESENTED; PUBLIC; RATIFIED; UNC; VETOED; WOMEN; CIVIL ACTIONS</li></ul></div>
+          <a href="https://example.com/nc-legislation/country:us/state:nc/sessions/2025/bills/HB171/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250409T000000Z">April 09, 2025 at 12:00 AM UTC</time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">lgbtq - wi-legislation - Relating to: prohibiting gender transition medical intervention for individuals under 18 years of age.</h2>
+          <div class="tags"><span class="tag">lgbtq</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">AB104</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">AB104</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">AB104</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Relating to: prohibiting gender transition medical intervention for individuals under 18 years of age.</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">2025</span></div></div>
+          <a href="https://example.com/wi-legislation/country:us/state:wi/sessions/2025/bills/AB104/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250320T050000Z.vote"></time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">lgbtq - vt-legislation - Joint resolution supporting Vermont’s transgender and non-binary community and declaring Vermont’s commitment to fighting discrimination and treating all citizens with respect and dignity</h2>
+          <div class="tags"><span class="tag">lgbtq</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">JRS 15</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">New Business/Third Reading</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-03-18</span></div><div class="json-section" style="margin-left: 2em; margin-top: 0.75em;"><strong class="json-key">classification</strong>:</div><ul class="json-list" style="margin-left: 3em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">reading-3</li></ul><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;upper&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">JRS 15</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">JRS 15</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Joint resolution supporting Vermont’s transgender and non-binary community and declaring Vermont’s commitment to fighting discrimination and treating all citizens with respect and dignity</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">2025-2026</span></div></div>
+          <a href="https://example.com/vt-legislation/country:us/state:vt/sessions/2025-2026/bills/JRS15/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250318T000000Z">March 18, 2025 at 12:00 AM UTC</time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">palestine_israel - mt-legislation - Joint resolution in support of Israel</h2>
+          <div class="tags"><span class="tag">palestine_israel</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HJ 9</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">(H) Committee Executive Action--Bill Passed - (H) Judiciary</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-02-12T19:15:00+00:00</span></div><div class="json-section" style="margin-left: 2em; margin-top: 0.75em;"><strong class="json-key">classification</strong>:</div><ul class="json-list" style="margin-left: 3em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">committee-passage</li></ul><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;lower&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HJ 9</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HJ 9</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Joint resolution in support of Israel</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">2025</span></div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">subject</strong>:</div><ul class="json-list" style="margin-left: 2em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">General Joint Resolution</li><li style="margin-bottom: 0.25em;">International Relations</li></ul></div>
+          <a href="https://example.com/mt-legislation/country:us/state:mt/sessions/2025/bills/HJ9/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime="20250212T191500Z">February 12, 2025 at 07:15 PM UTC</time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">palestine_israel - oh-legislation - Create the Ohio Israel Trade and Innovation Partnership</h2>
+          <div class="tags"><span class="tag">palestine_israel</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HB 188</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">Passed</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-11-05T05:00:00+00:00</span></div><div class="json-section" style="margin-left: 2em; margin-top: 0.75em;"><strong class="json-key">classification</strong>:</div><ul class="json-list" style="margin-left: 3em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">passage</li></ul><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;lower&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HB 188</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HB 188</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Create the Ohio Israel Trade and Innovation Partnership</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">136</span></div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">subject</strong>:</div><ul class="json-list" style="margin-left: 2em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">Commerce</li><li style="margin-bottom: 0.25em;">Economic Development</li><li style="margin-bottom: 0.25em;">State Government</li><li style="margin-bottom: 0.25em;">State and Local Government</li></ul><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">abstract (long title)</strong>: <span class="json-value">To enact section 122.1712 of the Revised Code to create the Ohio Israel Trade and Innovation Partnership and to make an appropriation.</span></div></div>
+          <a href="https://example.com/oh-legislation/country:us/state:oh/sessions/136/bills/HB188/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime=""></time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">palestine_israel - ri-legislation - HOUSE RESOLUTION RECOGNIZING THE 77TH ANNIVERSARY OF ISRAEL&#39;S DAY OF INDEPENDENCE ON APRIL 30TH THROUGH MAY 1ST, 2025, AND REAFFIRMING THE BONDS OF FRIENDSHIP AND COOPERATION BETWEEN RHODE ISLAND, THE UNITED STATES, AND THE STATE OF ISRAEL</h2>
+          <div class="tags"><span class="tag">palestine_israel</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HR6292</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">05/01/2025 House read and passed</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-05-01</span></div><div class="json-section" style="margin-left: 2em; margin-top: 0.75em;"><strong class="json-key">classification</strong>:</div><ul class="json-list" style="margin-left: 3em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">passage</li></ul><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;lower&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HR6292</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HR6292</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">HOUSE RESOLUTION RECOGNIZING THE 77TH ANNIVERSARY OF ISRAEL&#39;S DAY OF INDEPENDENCE ON APRIL 30TH THROUGH MAY 1ST, 2025, AND REAFFIRMING THE BONDS OF FRIENDSHIP AND COOPERATION BETWEEN RHODE ISLAND, THE UNITED STATES, AND THE STATE OF ISRAEL</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">2025</span></div></div>
+          <a href="https://example.com/ri-legislation/country:us/state:ri/sessions/2025/bills/HR6292/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime=""></time>
+          
+        </footer>
+      </article>
+      <article class="entry">
+        <header class="entry-header">
+          <h2 class="entry-title">palestine_israel - usa-legislation - Countering Hate Against Israel by Federal Contractors Act</h2>
+          <div class="tags"><span class="tag">palestine_israel</span></div>
+        </header>
+        <div class="entry-content">
+          <div class="json-content"><div class="json-line" style="margin-left: 0em; margin-top: 0.25em;"><strong class="json-key">id</strong>: <span class="json-value">HR 3050</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">log</strong>:</div><div class="json-section" style="margin-left: 1em; margin-top: 0.75em;"><strong class="json-key">action</strong>:</div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">description</strong>: <span class="json-value">Introduced in House</span></div><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">date</strong>: <span class="json-value">2025-04-28T04:00:00+00:00</span></div><div class="json-section" style="margin-left: 2em; margin-top: 0.75em;"><strong class="json-key">classification</strong>:</div><ul class="json-list" style="margin-left: 3em; margin-top: 0.25em;"><li style="margin-bottom: 0.25em;">introduction</li></ul><div class="json-line" style="margin-left: 2em; margin-top: 0.25em;"><strong class="json-key">organization_id</strong>: <span class="json-value">~{&quot;classification&quot;: &quot;lower&quot;}</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">bill_id</strong>: <span class="json-value">HR 3050</span></div><div class="json-section" style="margin-left: 0em; margin-top: 0.75em;"><strong class="json-key">bill</strong>:</div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">identifier</strong>: <span class="json-value">HR 3050</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">title</strong>: <span class="json-value">Countering Hate Against Israel by Federal Contractors Act</span></div><div class="json-line" style="margin-left: 1em; margin-top: 0.25em;"><strong class="json-key">legislative_session</strong>: <span class="json-value">119</span></div></div>
+          <a href="https://example.com/usa-legislation/country:us/state:usa/sessions/119/bills/HR3050/metadata.json" class="entry-link" target="_blank" rel="noopener">Read more →</a>
+        </div>
+        <footer class="entry-footer">
+          <time class="entry-date" datetime=""></time>
+          
+        </footer>
+      </article>
 
-      .rss-link {
-        display: inline-block;
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-      }
-
-      .rss-link:hover {
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      .rss-link::before {
-        content: "📡 ";
-        margin-right: 8px;
-      }
-
-      .content {
-        padding: 40px;
-      }
-
-      .loading {
-        text-align: center;
-        padding: 60px 20px;
-        color: #666;
-        font-size: 1.1em;
-      }
-
-      .loading::after {
-        content: "...";
-        animation: dots 1.5s steps(4, end) infinite;
-      }
-
-      @keyframes dots {
-        0%,
-        20% {
-          content: ".";
-        }
-        40% {
-          content: "..";
-        }
-        60%,
-        100% {
-          content: "...";
-        }
-      }
-
-      .error {
-        background: #fee;
-        color: #c33;
-        padding: 20px;
-        border-radius: 6px;
-        margin: 20px 0;
-        border-left: 4px solid #c33;
-      }
-
-      .items {
-        display: grid;
-        gap: 24px;
-      }
-
-      .item {
-        background: #f8f9fa;
-        border-radius: 8px;
-        padding: 24px;
-        border-left: 4px solid #667eea;
-        transition: all 0.3s ease;
-      }
-
-      .item:hover {
-        transform: translateX(4px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      .item-title {
-        font-size: 1.3em;
-        font-weight: 600;
-        margin-bottom: 12px;
-        color: #333;
-      }
-
-      .item-title a {
-        color: #667eea;
-        text-decoration: none;
-        transition: color 0.2s ease;
-      }
-
-      .item-title a:hover {
-        color: #764ba2;
-        text-decoration: underline;
-      }
-
-      .item-description {
-        color: #666;
-        margin-bottom: 16px;
-        line-height: 1.7;
-      }
-
-      .item-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        font-size: 0.9em;
-        color: #888;
-      }
-
-      .item-date {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .item-date::before {
-        content: "📅 ";
-      }
-
-      .item-categories {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .category {
-        background: #667eea;
-        color: white;
-        padding: 4px 12px;
-        border-radius: 12px;
-        font-size: 0.85em;
-        font-weight: 500;
-      }
-
-      .category.lgbtq {
-        background: #e91e63;
-      }
-
-      .category.palestine_israel {
-        background: #2196f3;
-      }
-
-      .empty {
-        text-align: center;
-        padding: 60px 20px;
-        color: #666;
-      }
-
-      @media (max-width: 768px) {
-        header h1 {
-          font-size: 1.8em;
-        }
-
-        .content {
-          padding: 20px;
-        }
-
-        .item {
-          padding: 16px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>LGBTQ & Palestine Israel Legislation</h1>
-        <p>
-          Track legislation related to LGBTQ+ rights and the Israeli-Palestinian
-          conflict
-        </p>
-        <a href="feed.xml" class="rss-link">Subscribe to RSS Feed</a>
-      </header>
-      <div class="content">
-        <div id="loading" class="loading">Loading feed</div>
-        <div id="error" class="error" style="display: none"></div>
-        <div id="items" class="items" style="display: none"></div>
-      </div>
     </div>
-
-    <script>
-      async function loadFeed() {
-        const loadingEl = document.getElementById("loading");
-        const errorEl = document.getElementById("error");
-        const itemsEl = document.getElementById("items");
-
-        try {
-          const response = await fetch("feed.xml");
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const xmlText = await response.text();
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(xmlText, "text/xml");
-
-          // Check for parsing errors
-          const parseError = xmlDoc.querySelector("parsererror");
-          if (parseError) {
-            throw new Error("Failed to parse XML: " + parseError.textContent);
-          }
-
-          const items = xmlDoc.querySelectorAll("item");
-
-          if (items.length === 0) {
-            itemsEl.innerHTML =
-              '<div class="empty">No items found in the feed.</div>';
-            itemsEl.style.display = "block";
-            loadingEl.style.display = "none";
-            return;
-          }
-
-          itemsEl.innerHTML = "";
-
-          items.forEach((item) => {
-            const titleEl = item.querySelector("title");
-            const linkEl = item.querySelector("link");
-            const descriptionEl = item.querySelector("description");
-            const pubDateEl = item.querySelector("pubDate");
-            const categories = item.querySelectorAll("category");
-
-            const title = titleEl ? titleEl.textContent : "Untitled";
-            const link = linkEl ? linkEl.textContent : "#";
-            const description = descriptionEl ? descriptionEl.textContent : "";
-            const pubDate = pubDateEl ? pubDateEl.textContent : "";
-
-            const itemDiv = document.createElement("div");
-            itemDiv.className = "item";
-
-            const titleHTML = `<div class="item-title"><a href="${link}" target="_blank" rel="noopener noreferrer">${escapeHtml(
-              title
-            )}</a></div>`;
-
-            const descriptionHTML = description
-              ? `<div class="item-description">${escapeHtml(description)}</div>`
-              : "";
-
-            const metaHTML = `
-                        <div class="item-meta">
-                            ${
-                              pubDate
-                                ? `<div class="item-date">${formatDate(
-                                    pubDate
-                                  )}</div>`
-                                : ""
-                            }
-                            <div class="item-categories">
-                                ${Array.from(categories)
-                                  .map((cat) => {
-                                    const category = cat.textContent.trim();
-                                    return `<span class="category ${category}">${escapeHtml(
-                                      category
-                                    )}</span>`;
-                                  })
-                                  .join("")}
-                            </div>
-                        </div>
-                    `;
-
-            itemDiv.innerHTML = titleHTML + descriptionHTML + metaHTML;
-            itemsEl.appendChild(itemDiv);
-          });
-
-          loadingEl.style.display = "none";
-          itemsEl.style.display = "block";
-        } catch (error) {
-          console.error("Error loading feed:", error);
-          loadingEl.style.display = "none";
-          errorEl.textContent = `Error loading feed: ${error.message}`;
-          errorEl.style.display = "block";
-        }
-      }
-
-      function escapeHtml(text) {
-        const div = document.createElement("div");
-        div.textContent = text;
-        return div.innerHTML;
-      }
-
-      function formatDate(dateString) {
-        try {
-          const date = new Date(dateString);
-          return date.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          });
-        } catch (e) {
-          return dateString;
-        }
-      }
-
-      // Load feed when page loads
-      loadFeed();
-    </script>
-  </body>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>Generated by Govbot • Last updated: December 16, 2025 at 09:27 PM UTC</p>
+    </div>
+  </footer>
+</body>
 </html>
