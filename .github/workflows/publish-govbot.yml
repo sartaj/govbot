@@ -1,5 +1,5 @@
-# Publish Govbot
-# Automatically generates and publishes Govbot from govbot.yml configuration
+# Run Govbot
+# Runs govbot to tag bills, push tags, and publish to endpoints.
 
 name: Publish Govbot
 
@@ -22,10 +22,10 @@ on:
         type: string
 
 jobs:
-  publish:
+  govbot:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
     
@@ -33,20 +33,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Publish RSS feed
+      - name: Run Govbot
         uses: windy-civi/toolkit/actions/govbot@main
         with:
           tags: ${{ inputs.tags }}
           limit: ${{ inputs.limit }}
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: feeds
-      
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
