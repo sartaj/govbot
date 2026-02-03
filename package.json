@@ -1,0 +1,12 @@
+{
+  "name": "govbot-visual-tests",
+  "version": "1.0.0",
+  "description": "Visual regression tests for govbot HTML feed",
+  "scripts": {
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
