@@ -23,6 +23,10 @@ on:
         type: boolean
         default: false
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   visual-regression:
     runs-on: ubuntu-latest
@@ -102,27 +106,27 @@ jobs:
           script: |
             const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
 
-            github.rest.issues.createComment({
+            await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `## Visual Regression Test - Baseline Created
 
-            **No baseline snapshots found.** New baselines have been generated.
+**No baseline snapshots found.** New baselines have been generated.
 
-            ### Next steps:
-            1. Download the \`baseline-snapshots\` artifact from [this workflow run](${runUrl})
-            2. Add the snapshots to your branch at \`tests/snapshots/\`
-            3. Commit and push the snapshots
+### Next steps:
+1. Download the \`baseline-snapshots\` artifact from [this workflow run](${runUrl})
+2. Add the snapshots to your branch at \`tests/snapshots/\`
+3. Commit and push the snapshots
 
-            Or run locally:
-            \`\`\`bash
-            npm install
-            npx playwright install --with-deps chromium webkit
-            npm run test:visual:update
-            git add tests/snapshots/
-            git commit -m "Add visual regression baseline snapshots"
-            \`\`\``
+Or run locally:
+\`\`\`bash
+npm install
+npx playwright install --with-deps chromium webkit
+npm run test:visual:update
+git add tests/snapshots/
+git commit -m "Add visual regression baseline snapshots"
+\`\`\``
             });
 
       - name: Comment on PR with diff results
@@ -132,26 +136,26 @@ jobs:
           script: |
             const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
 
-            github.rest.issues.createComment({
+            await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `## Visual Regression Test Results
 
-            **Visual differences detected!** Please review the changes.
+**Visual differences detected!** Please review the changes.
 
-            ### How to review:
-            1. Download the \`snapshot-diffs\` artifact from [this workflow run](${runUrl})
-            2. Review the \`*-diff.png\` files to see what changed
-            3. If the changes are intentional, update the snapshots by running:
-               \`\`\`bash
-               npm run test:visual:update
-               \`\`\`
-            4. Commit the updated snapshots
+### How to review:
+1. Download the \`snapshot-diffs\` artifact from [this workflow run](${runUrl})
+2. Review the \`*-diff.png\` files to see what changed
+3. If the changes are intentional, update the snapshots by running:
+   \`\`\`bash
+   npm run test:visual:update
+   \`\`\`
+4. Commit the updated snapshots
 
-            ### Artifacts:
-            - **visual-regression-report**: Full HTML report with interactive comparison
-            - **snapshot-diffs**: Just the diff images for quick review`
+### Artifacts:
+- **visual-regression-report**: Full HTML report with interactive comparison
+- **snapshot-diffs**: Just the diff images for quick review`
             });
 
       - name: Fail if visual tests failed
